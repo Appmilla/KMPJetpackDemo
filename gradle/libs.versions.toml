@@ -21,7 +21,6 @@ koinComposeMultiplatform = "1.2.0-Beta4"
 skie = "0.6.2"
 skie-annotations = "0.6.2"
 datastore = "1.1.1"
-kotest = "5.8.1"
 kotlinx-coroutines-test = "1.8.0"
 
 [libraries]
@@ -41,15 +40,9 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleViewModel"}
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
-koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koinComposeMultiplatform" }
 koin-composeVM = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koinComposeMultiplatform" }
-androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleViewModel" }
 touchlab-skie-annotations = { module = "co.touchlab.skie:configuration-annotations", version.ref = "skie-annotations" }
 datastore-preferences = { module = "androidx.datastore:datastore-preferences-core", version.ref = "datastore" }
-kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
-kotest-framework-engine = { module = "io.kotest:kotest-framework-engine", version.ref = "kotest" }
-kotest-framework-datatest = { module = "io.kotest:kotest-framework-datatest", version.ref = "kotest" }
-kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
 coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test" }
 
 [plugins]
@@ -58,4 +51,3 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 touchlab-skie = { id = "co.touchlab.skie", version.ref = "skie" }
-kotest-multiplatform = { id = "io.kotest.multiplatform", version.ref = "kotest" }

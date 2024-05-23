@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.touchlab.skie)
-    alias(libs.plugins.kotest.multiplatform)
 }
 
 kotlin {
@@ -35,6 +34,10 @@ kotlin {
             implementation(libs.lifecycle.viewmodel)
             implementation(libs.datastore.preferences)
         }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+            implementation(libs.coroutines.test)
+        }
     }
     
     // Fix for build error 'Cannot locate tasks that match ':shared:testClasses' as task 'testClasses' not found in project ':shared'.'
@@ -56,4 +59,8 @@ android {
         implementation(libs.androidx.core.ktx)
         implementation(libs.koin.android)
     }
+}
+
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
 }

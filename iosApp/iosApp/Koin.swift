@@ -21,26 +21,7 @@ final class Koin {
         }
     }
 
-    //4
     private init() {
-    }
-
-    //5
-    func get<T: AnyObject>() -> T {
-        guard let core else {
-            fatalError("You should call `start()` before using \(#function)")
-        }
-
-            /*
-        guard let result = core.get(objCClass: T.self) as? T else {
-            fatalError("Koin can't provide an instance of type: \(T.self)")
-        }*/
-            
-            guard let result = core.get(objCClass: T.self) as? T else {
-                fatalError("Koin can't provide an instance of type: \(T.self)")
-            }
-
-        return result
     }
 }
 
