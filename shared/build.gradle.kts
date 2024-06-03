@@ -13,25 +13,26 @@ kotlin {
             }
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
-        iosSimulatorArm64()
+        iosSimulatorArm64(),
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
+            export(libs.lifecycle.viewmodel)
             baseName = "Shared"
-            isStatic = true
+            // isStatic = true
         }
     }
-    
+
     sourceSets {
         commonMain.dependencies {
             // put your Multiplatform dependencies here
             api(libs.koin.core)
             implementation(libs.koin.composeVM)
             implementation(libs.touchlab.skie.annotations)
-            implementation(libs.lifecycle.viewmodel)
+            api(libs.lifecycle.viewmodel)
             implementation(libs.datastore.preferences)
         }
         commonTest.dependencies {
@@ -39,7 +40,7 @@ kotlin {
             implementation(libs.coroutines.test)
         }
     }
-    
+
     // Fix for build error 'Cannot locate tasks that match ':shared:testClasses' as task 'testClasses' not found in project ':shared'.'
     // see https://stackoverflow.com/questions/78133592/kmm-project-build-error-testclasses-not-found-in-project-shared
     task("testClasses")

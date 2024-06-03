@@ -4,7 +4,12 @@ import Shared
 struct ContentView: View {
     
     @ObservedObject
-    var viewModel = SwiftMainViewModel()
+    var viewModel: SwiftMainViewModel
+
+    init() {
+        let viewModelStoreOwner = SharedViewModelStoreOwner<MainViewModel>()
+        self.viewModel = SwiftMainViewModel(viewModelStoreOwner: viewModelStoreOwner)
+    }
     
     @State private var showContent = false
     var body: some View {
@@ -28,6 +33,9 @@ struct ContentView: View {
                         await viewModel.activate()
                     }
                 }
+        .onDisappear {
+            viewModel.deactivate()
+            }
     }
 }
 

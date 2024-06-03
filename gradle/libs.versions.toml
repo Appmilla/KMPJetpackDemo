@@ -15,7 +15,7 @@ compose-plugin = "1.6.2"
 junit = "4.13.2"
 kotlin = "1.9.23"
 
-lifecycleViewModel = "2.8.0-rc01"
+lifecycleViewModel = "2.8.0"
 koin = "3.6.0-Beta4"
 koinComposeMultiplatform = "1.2.0-Beta4"
 skie = "0.6.2"
