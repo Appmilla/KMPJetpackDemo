@@ -1,14 +1,15 @@
 import SwiftUI
 import Shared
 
-struct ContentView: View {
-    
-    @ObservedObject
-    var viewModel: SwiftMainViewModel
+struct DetailView: View {
+    @Binding var navigationID: String
 
-    init() {
-        let viewModelStoreOwner = SharedViewModelStoreOwner<MainViewModel>()
-        self.viewModel = SwiftMainViewModel(viewModelStoreOwner: viewModelStoreOwner)
+    @StateObject
+    var viewModel = SwiftMainViewModel()
+    
+    
+    init(navigationID: Binding<String>) {
+        self._navigationID = navigationID
     }
     
     @State private var showContent = false
@@ -29,18 +30,20 @@ struct ContentView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding()
         .onAppear {
-                    Task {
-                        await viewModel.activate()
-                    }
+            Task {
+                await viewModel.activate()
                 }
+            }
         .onDisappear {
             viewModel.deactivate()
+            // When the view disappears, update the navigation ID to ensure recreation next time
+            self.navigationID = UUID().uuidString
             }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        DetailView(navigationID: .constant(UUID().uuidString))
     }
 }

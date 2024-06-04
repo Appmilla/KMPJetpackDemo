@@ -10,7 +10,9 @@
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
-		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		7555FF83242A565900829871 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* DetailView.swift */; };
+		CF9260C12C0DC7FC0049FF4B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9260C02C0DC7FC0049FF4B /* HomeView.swift */; };
+		CF9260C32C0DDA930049FF4B /* SwiftHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9260C22C0DDA930049FF4B /* SwiftHomeViewModel.swift */; };
 		D57C22B046917EA4D388AE02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57C28E31C97A50668F0A5BD /* AppDelegate.swift */; };
 		D57C2DB5F7B03E88043BEA5C /* SwiftMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57C29425103EE8D5718E76F /* SwiftMainViewModel.swift */; };
 		D57C2E0FB6FFF45E0C0F991C /* SharedViewModelStoreOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57C276A0B842AF7EF227916 /* SharedViewModelStoreOwner.swift */; };
@@ -22,9 +24,11 @@
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* KMPJetpackDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KMPJetpackDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7555FF82242A565900829871 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB3632DC29227652001CCB65 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		CF9260C02C0DC7FC0049FF4B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CF9260C22C0DDA930049FF4B /* SwiftHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHomeViewModel.swift; sourceTree = "<group>"; };
 		D57C276A0B842AF7EF227916 /* SharedViewModelStoreOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedViewModelStoreOwner.swift; sourceTree = "<group>"; };
 		D57C28E31C97A50668F0A5BD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D57C29425103EE8D5718E76F /* SwiftMainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMainViewModel.swift; sourceTree = "<group>"; };
@@ -79,7 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
-				7555FF82242A565900829871 /* ContentView.swift */,
+				7555FF82242A565900829871 /* DetailView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
@@ -87,6 +91,8 @@
 				D57C2DB07CFCF0D1EFDBE6FC /* Koin.swift */,
 				D57C29425103EE8D5718E76F /* SwiftMainViewModel.swift */,
 				D57C276A0B842AF7EF227916 /* SharedViewModelStoreOwner.swift */,
+				CF9260C02C0DC7FC0049FF4B /* HomeView.swift */,
+				CF9260C22C0DDA930049FF4B /* SwiftHomeViewModel.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -196,9 +202,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
-				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				CF9260C12C0DC7FC0049FF4B /* HomeView.swift in Sources */,
+				7555FF83242A565900829871 /* DetailView.swift in Sources */,
 				D57C22B046917EA4D388AE02 /* AppDelegate.swift in Sources */,
 				D57C2F3B2957625CFC38E721 /* Koin.swift in Sources */,
+				CF9260C32C0DDA930049FF4B /* SwiftHomeViewModel.swift in Sources */,
 				D57C2DB5F7B03E88043BEA5C /* SwiftMainViewModel.swift in Sources */,
 				D57C2E0FB6FFF45E0C0F991C /* SharedViewModelStoreOwner.swift in Sources */,
 			);
@@ -334,9 +342,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = "${TEAM_ID}";
 				ENABLE_PREVIEWS = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)";
 				INFOPLIST_FILE = iosApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -365,9 +371,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = "${TEAM_ID}";
 				ENABLE_PREVIEWS = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)";
 				INFOPLIST_FILE = iosApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (

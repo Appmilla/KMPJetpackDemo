@@ -1,4 +1,4 @@
-package data.repository
+package data.repositories
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
@@ -8,17 +8,16 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import okio.Path.Companion.toPath
 
-fun createDataStore(
-    producePath: () -> String,
-): DataStore<Preferences> = PreferenceDataStoreFactory.createWithPath(
-    corruptionHandler = null,
-    migrations = emptyList(),
-    produceFile = { producePath().toPath() },
-)
-
+fun createDataStore(producePath: () -> String): DataStore<Preferences> =
+    PreferenceDataStoreFactory.createWithPath(
+        corruptionHandler = null,
+        migrations = emptyList(),
+        produceFile = { producePath().toPath() },
+    )
 
 interface TimerRepository {
     val timerValue: Flow<Int>
+
     suspend fun saveTimerValue(value: Int)
 }
 
@@ -33,7 +32,8 @@ class TimerRepositoryImpl(private val dataStore: DataStore<Preferences>) : Timer
         }
     }
 
-    override val timerValue: Flow<Int> = dataStore.data.map { preferences ->
-        preferences[timerKey] ?: 0
-    }
+    override val timerValue: Flow<Int> =
+        dataStore.data.map { preferences ->
+            preferences[timerKey] ?: 0
+        }
 }

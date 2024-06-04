@@ -1,4 +1,4 @@
-package data.repository
+package data.repositories
 
 interface HelloWorldRepository {
     fun getHelloWorldMessage(): String

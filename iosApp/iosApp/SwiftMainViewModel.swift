@@ -4,15 +4,13 @@ import Combine
 
 class SwiftMainViewModel: ObservableObject {
     
-    var viewModel: MainViewModel = KotlinDependencies.shared.getMainViewModel()
+    var viewModelStoreOwner = SharedViewModelStoreOwner<MainViewModel>()
+    var viewModel: MainViewModel
     
     @Published
     private(set) var timerInterval: Int? = nil
-
-    private var viewModelStoreOwner: SharedViewModelStoreOwner<MainViewModel>
     
-    init(viewModelStoreOwner: SharedViewModelStoreOwner<MainViewModel>) {
-        self.viewModelStoreOwner = viewModelStoreOwner
+    init() {
         let viewModel = viewModelStoreOwner.instance
         self.viewModel = viewModel
     }

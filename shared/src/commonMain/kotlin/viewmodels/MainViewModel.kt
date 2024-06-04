@@ -1,8 +1,9 @@
 package viewmodels
 
 import androidx.lifecycle.ViewModel
-import data.repository.HelloWorldRepository
-import data.repository.TimerRepository
+import androidx.lifecycle.viewModelScope
+import data.repositories.HelloWorldRepository
+import data.repositories.TimerRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -17,8 +18,7 @@ class MainViewModel(
     private val viewModelScope: CoroutineScope,
     helloWorldRepository: HelloWorldRepository,
     private val timerRepository: TimerRepository,
-): ViewModel(viewModelScope) {
-
+) : ViewModel(viewModelScope) {
     private val _timer = MutableStateFlow(0)
     val timer = _timer.asStateFlow()
 
@@ -36,14 +36,15 @@ class MainViewModel(
     }
 
     private fun startTimer() {
-        timerJob = viewModelScope.launch {
-            while (isActive) {
-                delay(1000)
-                _timer.value++
-                timerRepository.saveTimerValue(_timer.value)
-                println("Timer fired, value from timerRepository: $_timer.value")
+        timerJob =
+            viewModelScope.launch {
+                while (isActive) {
+                    delay(1000)
+                    _timer.value++
+                    timerRepository.saveTimerValue(_timer.value)
+                    println("Timer fired, value from timerRepository: $_timer.value")
+                }
             }
-        }
     }
 
     override fun onCleared() {

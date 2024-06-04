@@ -19,7 +19,11 @@ fun Koin.get(objCClass: ObjCClass): Any {
 }
 
 @BetaInteropApi
-fun Koin.get(objCClass: ObjCClass, qualifier: Qualifier?, parameter: Any): Any {
+fun Koin.get(
+    objCClass: ObjCClass,
+    qualifier: Qualifier?,
+    parameter: Any,
+): Any {
     val kClazz = getOriginalKotlinClass(objCClass)!!
     return get(kClazz, qualifier) { parametersOf(parameter) }
 }
@@ -38,5 +42,5 @@ fun initKoin(): KoinApplication {
 
 @Suppress("unused") // Called from Swift
 object KotlinDependencies : KoinComponent {
-    fun getMainViewModel() = getKoin().get<MainViewModel>()
+    fun getMainViewModel() = getKoin().get<MainViewModel>() // TODO remove as no longer needed
 }
