@@ -26,7 +26,7 @@ import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class MainViewModelFactory(
+class DetailViewModelFactory(
     private val scope: CoroutineScope,
     private val timerRepository: TimerRepository,
     private val helloWorldRepository: HelloWorldRepository,
@@ -36,7 +36,7 @@ class MainViewModelFactory(
         modelClass: KClass<T>,
         extras: CreationExtras,
     ): T {
-        return MainViewModel(
+        return DetailViewModel(
             viewModelScope = scope,
             helloWorldRepository = helloWorldRepository,
             timerRepository = timerRepository,
@@ -45,7 +45,7 @@ class MainViewModelFactory(
 }
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class MainViewModelTest {
+class DetailViewModelTest {
     private val testDispatcher = StandardTestDispatcher()
 
     @BeforeTest
@@ -65,8 +65,8 @@ class MainViewModelTest {
             val timerRepository = FakeTimerRepository(initialValue)
             val helloWorldRepository = FakeHelloWorldRepository()
 
-            val mainViewModel =
-                MainViewModel(
+            val detailViewModel =
+                DetailViewModel(
                     viewModelScope = this,
                     helloWorldRepository = helloWorldRepository,
                     timerRepository = timerRepository,
@@ -74,7 +74,7 @@ class MainViewModelTest {
 
             advanceTimeBy(100)
 
-            assertEquals(initialValue, mainViewModel.timer.value)
+            assertEquals(initialValue, detailViewModel.timer.value)
 
             this.coroutineContext.cancelChildren()
         }
@@ -85,8 +85,8 @@ class MainViewModelTest {
             val timerRepository = FakeTimerRepository(0)
             val helloWorldRepository = FakeHelloWorldRepository()
 
-            val mainViewModel =
-                MainViewModel(
+            val detailViewModel =
+                DetailViewModel(
                     viewModelScope = this,
                     helloWorldRepository = helloWorldRepository,
                     timerRepository = timerRepository,
@@ -95,7 +95,7 @@ class MainViewModelTest {
             val values = mutableListOf<Int>()
             val job =
                 launch {
-                    mainViewModel.timer.collect { values.add(it) }
+                    detailViewModel.timer.collect { values.add(it) }
                 }
 
             advanceTimeBy(3500)
@@ -121,7 +121,7 @@ class MainViewModelTest {
                 }
             val helloWorldRepository = FakeHelloWorldRepository()
 
-            MainViewModel(
+            DetailViewModel(
                 viewModelScope = this,
                 helloWorldRepository = helloWorldRepository,
                 timerRepository = timerRepository,
@@ -140,16 +140,16 @@ class MainViewModelTest {
             val timerRepository = FakeTimerRepository(0)
             val helloWorldRepository = FakeHelloWorldRepository()
 
-            val factory = MainViewModelFactory(this, timerRepository, helloWorldRepository)
+            val factory = DetailViewModelFactory(this, timerRepository, helloWorldRepository)
             val viewModelStore = ViewModelStore()
             val provider = ViewModelProvider.create(viewModelStore, factory)
 
-            val mainViewModel = provider[MainViewModel::class]
+            val detailViewModel = provider[DetailViewModel::class]
 
             val values = mutableListOf<Int>()
             val job =
                 launch {
-                    mainViewModel.timer.collect { values.add(it) }
+                    detailViewModel.timer.collect { values.add(it) }
                 }
 
             advanceTimeBy(2500)

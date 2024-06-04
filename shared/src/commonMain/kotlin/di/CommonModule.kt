@@ -9,13 +9,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import org.koin.compose.viewmodel.dsl.viewModel
 import org.koin.dsl.module
+import viewmodels.DetailViewModel
 import viewmodels.HomeViewModel
-import viewmodels.MainViewModel
 
 val commonModule =
     module {
         single<TimerRepository> { TimerRepositoryImpl(get()) }
-        viewModel { MainViewModel(get(), get(), get()) }
+        viewModel { DetailViewModel(get(), get(), get()) }
         viewModel { HomeViewModel() }
         single<HelloWorldRepository> { DefaultHelloWorldRepository() }
         factory { CoroutineScope(SupervisorJob() + Dispatchers.Main) }

@@ -2,10 +2,10 @@ import Foundation
 import Shared
 import Combine
 
-class SwiftMainViewModel: ObservableObject {
+class SwiftDetailViewModel: ObservableObject {
     
-    var viewModelStoreOwner = SharedViewModelStoreOwner<MainViewModel>()
-    var viewModel: MainViewModel
+    var viewModelStoreOwner = SharedViewModelStoreOwner<DetailViewModel>()
+    var viewModel: DetailViewModel
     
     @Published
     private(set) var timerInterval: Int? = nil

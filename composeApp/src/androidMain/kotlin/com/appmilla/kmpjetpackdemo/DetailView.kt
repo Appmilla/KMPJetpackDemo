@@ -12,13 +12,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.annotation.KoinExperimentalAPI
-import viewmodels.MainViewModel
+import viewmodels.DetailViewModel
 
 @OptIn(KoinExperimentalAPI::class)
 @Composable
 fun DetailView() {
-    val mainViewModel = koinViewModel<MainViewModel>()
-    val timer by mainViewModel.timer.collectAsState()
+    val detailViewModel = koinViewModel<DetailViewModel>()
+    val timer by detailViewModel.timer.collectAsState()
 
     MaterialTheme {
         Box(
@@ -42,7 +42,7 @@ fun DetailViewPreview() {
 @OptIn(KoinExperimentalAPI::class)
 @Composable
 fun DetailView(viewModelStoreOwnerDetailView: ViewModelStoreOwner) {
-    val mainViewModel = koinViewModel<MainViewModel>()
+    val mainViewModel = koinViewModel<DetailViewModel>()
     val timer by mainViewModel.timer.collectAsState()
 
     MaterialTheme {

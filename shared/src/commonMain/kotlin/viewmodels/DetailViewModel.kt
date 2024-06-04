@@ -1,7 +1,6 @@
 package viewmodels
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import data.repositories.HelloWorldRepository
 import data.repositories.TimerRepository
 import kotlinx.coroutines.CoroutineScope
@@ -14,7 +13,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
-class MainViewModel(
+class DetailViewModel(
     private val viewModelScope: CoroutineScope,
     helloWorldRepository: HelloWorldRepository,
     private val timerRepository: TimerRepository,

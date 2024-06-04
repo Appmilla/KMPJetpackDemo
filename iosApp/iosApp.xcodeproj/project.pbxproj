@@ -14,7 +14,7 @@
 		CF9260C12C0DC7FC0049FF4B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9260C02C0DC7FC0049FF4B /* HomeView.swift */; };
 		CF9260C32C0DDA930049FF4B /* SwiftHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9260C22C0DDA930049FF4B /* SwiftHomeViewModel.swift */; };
 		D57C22B046917EA4D388AE02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57C28E31C97A50668F0A5BD /* AppDelegate.swift */; };
-		D57C2DB5F7B03E88043BEA5C /* SwiftMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57C29425103EE8D5718E76F /* SwiftMainViewModel.swift */; };
+		D57C2DB5F7B03E88043BEA5C /* SwiftDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57C29425103EE8D5718E76F /* SwiftDetailViewModel.swift */; };
 		D57C2E0FB6FFF45E0C0F991C /* SharedViewModelStoreOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57C276A0B842AF7EF227916 /* SharedViewModelStoreOwner.swift */; };
 		D57C2F3B2957625CFC38E721 /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57C2DB07CFCF0D1EFDBE6FC /* Koin.swift */; };
 /* End PBXBuildFile section */
@@ -31,7 +31,7 @@
 		CF9260C22C0DDA930049FF4B /* SwiftHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHomeViewModel.swift; sourceTree = "<group>"; };
 		D57C276A0B842AF7EF227916 /* SharedViewModelStoreOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedViewModelStoreOwner.swift; sourceTree = "<group>"; };
 		D57C28E31C97A50668F0A5BD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D57C29425103EE8D5718E76F /* SwiftMainViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMainViewModel.swift; sourceTree = "<group>"; };
+		D57C29425103EE8D5718E76F /* SwiftDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftDetailViewModel.swift; sourceTree = "<group>"; };
 		D57C2DB07CFCF0D1EFDBE6FC /* Koin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Koin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +89,7 @@
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 				D57C28E31C97A50668F0A5BD /* AppDelegate.swift */,
 				D57C2DB07CFCF0D1EFDBE6FC /* Koin.swift */,
-				D57C29425103EE8D5718E76F /* SwiftMainViewModel.swift */,
+				D57C29425103EE8D5718E76F /* SwiftDetailViewModel.swift */,
 				D57C276A0B842AF7EF227916 /* SharedViewModelStoreOwner.swift */,
 				CF9260C02C0DC7FC0049FF4B /* HomeView.swift */,
 				CF9260C22C0DDA930049FF4B /* SwiftHomeViewModel.swift */,
@@ -207,7 +207,7 @@
 				D57C22B046917EA4D388AE02 /* AppDelegate.swift in Sources */,
 				D57C2F3B2957625CFC38E721 /* Koin.swift in Sources */,
 				CF9260C32C0DDA930049FF4B /* SwiftHomeViewModel.swift in Sources */,
-				D57C2DB5F7B03E88043BEA5C /* SwiftMainViewModel.swift in Sources */,
+				D57C2DB5F7B03E88043BEA5C /* SwiftDetailViewModel.swift in Sources */,
 				D57C2E0FB6FFF45E0C0F991C /* SharedViewModelStoreOwner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,7 @@ import org.koin.core.module.Module
 import org.koin.core.parameter.parametersOf
 import org.koin.core.qualifier.Qualifier
 import org.koin.dsl.bind
-import viewmodels.MainViewModel
+import viewmodels.DetailViewModel
 
 @BetaInteropApi
 fun Koin.get(objCClass: ObjCClass): Any {
@@ -42,5 +42,5 @@ fun initKoin(): KoinApplication {
 
 @Suppress("unused") // Called from Swift
 object KotlinDependencies : KoinComponent {
-    fun getMainViewModel() = getKoin().get<MainViewModel>() // TODO remove as no longer needed
+    fun getMainViewModel() = getKoin().get<DetailViewModel>() // TODO remove as no longer needed
 }

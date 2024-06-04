@@ -32,8 +32,7 @@ class MainActivity : ComponentActivity() {
                                     override val viewModelStore: ViewModelStore = ViewModelStore()
                                 }
                             DetailView(viewModelStoreOwnerDetailView)
-                        }
-                         */
+                        }*/
                     }
                 }
             }

@@ -5,7 +5,7 @@ struct DetailView: View {
     @Binding var navigationID: String
 
     @StateObject
-    var viewModel = SwiftMainViewModel()
+    var viewModel = SwiftDetailViewModel()
     
     
     init(navigationID: Binding<String>) {
