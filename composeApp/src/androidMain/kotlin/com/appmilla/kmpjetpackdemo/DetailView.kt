@@ -5,18 +5,21 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.ViewModelStore
+import androidx.lifecycle.ViewModelStoreOwner
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.annotation.KoinExperimentalAPI
 import viewmodels.MainViewModel
 
 @OptIn(KoinExperimentalAPI::class)
 @Composable
-fun DetailView() {
+fun DetailView(viewModelStoreOwnerDetailView: ViewModelStoreOwner) {
     val mainViewModel = koinViewModel<MainViewModel>()
     val timer by mainViewModel.timer.collectAsState()
 
@@ -30,10 +33,20 @@ fun DetailView() {
             )
         }
     }
+
+    DisposableEffect(key1 = Unit, effect = {
+        onDispose {
+            viewModelStoreOwnerDetailView.viewModelStore.clear()
+        }
+    })
 }
 
 @Preview
 @Composable
 fun DetailViewPreview() {
-    DetailView()
+    val viewModelStoreOwnerDetailView =
+        object : ViewModelStoreOwner {
+            override val viewModelStore: ViewModelStore = ViewModelStore()
+        }
+    DetailView(viewModelStoreOwnerDetailView)
 }

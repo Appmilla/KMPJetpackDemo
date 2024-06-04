@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
-import androidx.compose.runtime.DisposableEffect
 import androidx.lifecycle.ViewModelStore
+import androidx.lifecycle.ViewModelStoreOwner
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -22,13 +22,11 @@ class MainActivity : ComponentActivity() {
                     NavHost(navController = navController, startDestination = "home") {
                         composable("home") { HomeView(navController) }
                         composable("detail") {
-                            DetailView()
-                            DisposableEffect(Unit) {
-                                onDispose {
-                                    // Clear the ViewModelStore when navigating away from the DetailView
-                                    ViewModelStore().clear()
+                            val viewModelStoreOwnerDetailView =
+                                object : ViewModelStoreOwner {
+                                    override val viewModelStore: ViewModelStore = ViewModelStore()
                                 }
-                            }
+                            DetailView(viewModelStoreOwnerDetailView)
                         }
                     }
                 }
