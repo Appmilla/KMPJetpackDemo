@@ -4,8 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
-import androidx.lifecycle.ViewModelStore
-import androidx.lifecycle.ViewModelStoreOwner
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -22,12 +20,20 @@ class MainActivity : ComponentActivity() {
                     NavHost(navController = navController, startDestination = "home") {
                         composable("home") { HomeView(navController) }
                         composable("detail") {
+                            ProvidesViewModelStoreOwner {
+                                DetailView()
+                            }
+                        }
+
+                        /*
+                        composable("detail") {
                             val viewModelStoreOwnerDetailView =
                                 object : ViewModelStoreOwner {
                                     override val viewModelStore: ViewModelStore = ViewModelStore()
                                 }
                             DetailView(viewModelStoreOwnerDetailView)
                         }
+                         */
                     }
                 }
             }
