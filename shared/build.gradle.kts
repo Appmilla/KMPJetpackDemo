@@ -59,7 +59,6 @@ android {
     dependencies {
         implementation(libs.androidx.core.ktx)
         implementation(libs.koin.android)
-        // implementation(libs.compose.ui.android)
     }
 }
 
