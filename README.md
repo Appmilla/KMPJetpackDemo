@@ -1,5 +1,5 @@
 
-# KMPJetpackdemo
+# KMPJetpackDemo
 A simple timer example using AndroidX Jetpack ViewModels & DataStore shared between iOS and Android.
 
 Koin is used for DI and Touchlab's SKIE for consuming the VieWModels Flows.
