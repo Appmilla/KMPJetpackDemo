@@ -13,6 +13,7 @@ import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -55,7 +56,11 @@ class DetailViewModelTest {
 
     @AfterTest
     fun tearDown() {
-        Dispatchers.resetMain()
+        try {
+            // Other teardown code
+        } finally {
+            Dispatchers.resetMain()
+        }
     }
 
     @Test
@@ -113,6 +118,11 @@ class DetailViewModelTest {
                 object : TimerRepository {
                     private val _timerValue = flow { emit(0) }
                     override val timerValue: Flow<Int> get() = _timerValue
+
+                    override suspend fun getTimerValue(): Int {
+                        return _timerValue.first()
+                    }
+
                     var saveCalls = 0
 
                     override suspend fun saveTimerValue(value: Int) {
@@ -165,6 +175,10 @@ class DetailViewModelTest {
 class FakeTimerRepository(initialValue: Int) : TimerRepository {
     private val _timerValue = MutableStateFlow(initialValue)
     override val timerValue: Flow<Int> get() = _timerValue.asStateFlow()
+
+    override suspend fun getTimerValue(): Int {
+        return _timerValue.first()
+    }
 
     override suspend fun saveTimerValue(value: Int) {
         _timerValue.value = value

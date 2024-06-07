@@ -8,8 +8,6 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
@@ -24,12 +22,15 @@ class DetailViewModel(
     private var timerJob: Job? = null
 
     init {
-        timerRepository.timerValue
-            .onEach { value ->
-                _timer.value = value
-                println("Collecting value from timerRepository: $value")
+        viewModelScope.launch {
+            try {
+                val initialTimerValue = timerRepository.getTimerValue()
+                _timer.value = initialTimerValue
+                println("Initial timer value from timerRepository: $initialTimerValue")
+            } catch (e: Exception) {
+                println("Error fetching initial timer value")
             }
-            .launchIn(viewModelScope)
+        }
         startTimer()
         println(helloWorldRepository.getHelloWorldMessage())
     }
@@ -40,8 +41,12 @@ class DetailViewModel(
                 while (isActive) {
                     delay(1000)
                     _timer.value++
-                    timerRepository.saveTimerValue(_timer.value)
-                    println("Timer fired, value from timerRepository: $_timer.value")
+                    try {
+                        timerRepository.saveTimerValue(_timer.value)
+                        println("Timer fired, value from timerRepository: ${_timer.value}")
+                    } catch (e: Exception) {
+                        println("Error saving timer value")
+                    }
                 }
             }
     }

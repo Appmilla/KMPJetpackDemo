@@ -5,6 +5,7 @@ import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.intPreferencesKey
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import okio.Path.Companion.toPath
 
@@ -18,11 +19,17 @@ fun createDataStore(producePath: () -> String): DataStore<Preferences> =
 interface TimerRepository {
     val timerValue: Flow<Int>
 
+    suspend fun getTimerValue(): Int
+
     suspend fun saveTimerValue(value: Int)
 }
 
 class TimerRepositoryImpl(private val dataStore: DataStore<Preferences>) : TimerRepository {
     private val timerKey = intPreferencesKey("timer_value")
+
+    override suspend fun getTimerValue(): Int {
+        return dataStore.data.first()[timerKey] ?: 0
+    }
 
     override suspend fun saveTimerValue(value: Int) {
         dataStore.updateData { preferences ->
