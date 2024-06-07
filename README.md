@@ -1,4 +1,12 @@
-This is a Kotlin Multiplatform project targeting Android, iOS.
+
+# KMPJetpackdemo
+A simple timer example using AndroidX Jetpack ViewModels & DataStore shared between iOS and Android.
+
+Koin is used for DI and Touchlab's SKIE for consuming the VieWModels Flows.
+
+There is a [blog article](https://appmilla.com/latest/getting-started-…in-multiplatform/) to accompany the code.
+
+This is a Kotlin Multiplatform project targeting Android, iOS. 
 
 * `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
   It contains several subfolders:
