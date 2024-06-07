@@ -24,15 +24,6 @@ class MainActivity : ComponentActivity() {
                                 DetailView()
                             }
                         }
-
-                        /*
-                        composable("detail") {
-                            val viewModelStoreOwnerDetailView =
-                                object : ViewModelStoreOwner {
-                                    override val viewModelStore: ViewModelStore = ViewModelStore()
-                                }
-                            DetailView(viewModelStoreOwnerDetailView)
-                        }*/
                     }
                 }
             }

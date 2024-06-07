@@ -37,38 +37,3 @@ fun DetailView() {
 fun DetailViewPreview() {
     DetailView()
 }
-
-/*
-@OptIn(KoinExperimentalAPI::class)
-@Composable
-fun DetailView(viewModelStoreOwnerDetailView: ViewModelStoreOwner) {
-    val mainViewModel = koinViewModel<DetailViewModel>()
-    val timer by mainViewModel.timer.collectAsState()
-
-    MaterialTheme {
-        Box(
-            Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center,
-        ) {
-            Text(
-                text = timer.toString(),
-            )
-        }
-    }
-
-    DisposableEffect(key1 = Unit, effect = {
-        onDispose {
-            viewModelStoreOwnerDetailView.viewModelStore.clear()
-        }
-    })
-}
-
-@Preview
-@Composable
-fun DetailViewPreview() {
-    val viewModelStoreOwnerDetailView =
-        object : ViewModelStoreOwner {
-            override val viewModelStore: ViewModelStore = ViewModelStore()
-        }
-    DetailView(viewModelStoreOwnerDetailView)
-}*/
